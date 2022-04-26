@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: database
+    image: mysql:8.0
+    networks:
+      - my-network
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: profolio
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    networks:
+      - my-network
+    links:
+        - database
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: database
+  php:
+    container_name: php 
+    build:
+      context: ./Docker/php
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./app:/laragon/www/profolio
+    depends_on:
+      - database
+  nginx:
+    container_name: nginx
+    networks:
+      - my-network
+    image: nginx:stable-alpine
+    ports:
+      - '8010:80'
+    volumes:
+      - ./app:/laragon/www/Profolio
+      - ./nginx/default.conf:/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - database
+
+networks:
+  my-network:
