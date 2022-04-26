@@ -18,7 +18,7 @@ class Tag
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\ManyToMany(targetEntity: project::class, inversedBy: 'tags')]
+    #[ORM\ManyToMany(targetEntity: Project::class, inversedBy: 'tags')]
     private $projects;
 
     public function __construct()
@@ -65,5 +65,10 @@ class Tag
         $this->projects->removeElement($project);
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+       return $this->name;
     }
 }

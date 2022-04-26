@@ -19,8 +19,8 @@ class Image
     #[ORM\Column(type: 'string', length: 255)]
     private $figcaption;
 
-    #[ORM\ManyToOne(targetEntity: project::class, inversedBy: 'images')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Project::class, inversedBy: 'images')]
+    #[ORM\JoinColumn(nullable: true)]
     private $projects;
 
     public function getId(): ?int
@@ -63,4 +63,9 @@ class Image
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->path;
+    }
+
 }

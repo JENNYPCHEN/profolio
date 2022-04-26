@@ -18,7 +18,7 @@ class Category
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: skill::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class, orphanRemoval: true)]
     private $skills;
 
     public function __construct()
@@ -71,5 +71,9 @@ class Category
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }
