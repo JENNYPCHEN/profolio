@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Se Connecter {% endblock %}
+
+{% block body %}
+{% block main %}
+<section id="login" class="vh-100" >
+        <img src="{{ asset('build/img/hero_background.png') }}" alt="" class="background">
+        <div class="px-4 py-5 my-5 text-center">
+        {% if error %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+         {% endif %}
+
+          <h1 class="display-5 fw-bold text-white pt-5 mt-5 ">se connecter</h1><br><br>
+             <form class=" row justify-content-center" id="login_form" action="{{ path('login') }}" method="post">
+            <div class="col-md-4 ">
+             <input type="text" id="username" name="_username" value="{{ last_username }}"class="form-control my-2" placeholder="Votre nom d'utilisateur *" aria-label="Votre nom" required/>
+             <input type="password" id="password" name="_password"class="form-control my-2" placeholder="Votre mot de passe *" aria-label="Votre email" required/>
+               <input type="hidden" name="_target_path" value="/admin"/> 
+            </div>
+            <div class="col-12 text-center icon  pt-5 ">
+              <button type="submit" class="button px-2">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </section> 
+      <section id="quote" class="text-center mb-2">
+        <p><i>“Make it work, make it right, make it fast.” – Kent Beck</i></p>
+      </section>
+
+{% endblock %}
+{% endblock %}

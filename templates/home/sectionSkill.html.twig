@@ -1,0 +1,85 @@
+<section id="skills" style="background-color:white;">
+        <div class ="container ">
+          <h2 class="py-5 title text-center active ">mes compétences</h2>
+          <p class="text-center fs-6 mx-5 px-5">Je me définis comme une personne qui aime les défis et la satisfaction de surmonter les obstacles.  Je mettrai régulièrement à jour mes compétences ici </p>
+          <div class="d-flex  flex-column flex-md-row justify-content-center container animate__animated animate__backInLeft ">
+            <div id="frontend" class="col-md-3 col-12 mx-2 my-4 " style="background-color:lightgoldenrodyellow" >
+              <h4 class="d-flex justify-content-between justify-content-md-center px-3 py-3 icon " >Frontend
+                <a id="skillItemsButton" class="  d-md-none d-lg-none d-xl-none " data-bs-toggle="collapse" href="#frontendSkillItems" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <i class='bx bxs-chevrons-down fs-3 ' ></i>
+                </a> 
+              </h4>
+              <div id="frontendSkillItems" class=" collapse show d-md-block d-lg-block d-xl-block">
+               {% for frontend in frontends %}
+               {% for skill in frontend.skills %}
+                <div class=" p-2 d-flex flex-row " >
+                  <div class="col-4 "> 
+                    <img class="img-fluid p-md-1 p-lg-1 p-xl-1 p-4 text-sm-center"src="{{ asset('uploads/skillLogo/')}}{{skill.logo}}">
+                  </div>
+                  <div class="col-8  p-3">
+                    <div class="progress">
+                      <div class= "progress-bar" role="progressbar"  aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100" style="width:{{skill.level}}%; background-color:#fff458 ">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            </div>
+            
+            <div id="backend" class="col-md-4 mx-2 col-12" style="background-color:rgb(230, 230, 230)" >
+              <h4 class="d-flex justify-content-between justify-content-md-center px-3 py-3 icon " >Backend
+                <a id="skillItemsButton" class="  d-md-none d-lg-none d-xl-none " data-bs-toggle="collapse" href="#backendSkillItems" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <i class='bx bxs-chevrons-down fs-3 ' ></i>
+                </a> 
+              </h4> 
+              <div id="backendSkillItems" class=" collapse d-md-block d-lg-block d-xl-block">
+               {% for backend in backends %}
+               {% for skill in backend.skills %}
+                <div class=" p-2 d-flex flex-row" >
+                  <div class="col-4">
+                    <img class="img-fluid p-md-1 p-lg-1 p-xl-1 p-4 text-sm-center"src="{{ asset('uploads/skillLogo/')}}{{skill.logo}}">
+                  </div>
+                  <div class="col-8  p-3">
+                    <div class="progress">
+                      <div class= "progress-bar" role="progressbar"  aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100" style="width:{{skill.level}}%; background-color:#fff458 ">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endfor %}
+                
+                 </div>
+            </div>
+            
+            <div id="autre" class="col-md-3 mx-2 my-4 col-12" style="background-color:lightgoldenrodyellow" >
+              <h4 class="d-flex justify-content-between justify-content-md-center px-3 py-3 icon  " >Autres
+                <a id="skillItemsButton" class="  d-md-none d-lg-none d-xl-none " data-bs-toggle="collapse" href="#otherSkillItems" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <i class='bx bxs-chevrons-down fs-3 ' ></i>
+                </a> 
+              </h4> 
+              <div id="otherSkillItems" class=" collapse d-md-block d-lg-block d-xl-block">
+              {% for other in others %}
+              {% for skill in other.skills %}
+                <div class=" p-2 d-flex flex-row" >
+                  <div class="col-4">
+                    <img class="img-fluid p-md-1 p-lg-1 p-xl-1 p-4 text-sm-center"src="{{ asset('uploads/skillLogo/')}}{{skill.logo}}">
+                  </div>
+                  <div class="col-8  p-3">
+                    <div class="progress">
+                      <div class= "progress-bar" role="progressbar"  aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100" style="width:{{skill.level}}%; background-color:#fff458 ">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+             {% endfor %}
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </section>
+    

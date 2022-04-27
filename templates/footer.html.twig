@@ -1,0 +1,11 @@
+   <footer class="footer pt-2  text-center" style="background-color: #3d7a52;">
+      <p class="logo fs-4 " >Ching Yi P.C</p>
+      <div class="py-2 icon">
+      {% for introduction in introductions %}
+        <a href="{{introduction.gitHubLink}}" target="_blank" class=" px-2"><i class='bx bxl-github fs-3' ></i></i></a>
+        <a href="{{introduction.cvLink}}" target="_blank" class=" px-2"><i class='bx bxs-cloud-download fs-3 ' ></i></a>
+        <a href="{{introduction.linkedinLink}}" target="_blank" class=" px-2"><i class='bx bxl-linkedin-square fs-3'></i></a>
+        {% endfor %}
+      </div>
+      <p class=" fs-6">Tous droits réservés &#169;  Ching Yi P.C. | 2022<span > {% if null is same as  app.user %}<a href="{{path('login')}}"><i class='bx bx-log-in text-white-50'></i></a>{% else %}<a href="{{path('app_logout')}}"><i class='bx bx-log-in text-white-50'></i></a>{% endif %}</span></p>
+    </footer>
