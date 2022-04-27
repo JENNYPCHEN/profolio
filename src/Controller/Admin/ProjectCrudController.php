@@ -53,4 +53,13 @@ class ProjectCrudController extends AbstractCrudController
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
         parent::persistEntity($entityManager, $entityInstance);
     }
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        if(! $entityInstance instanceof Project)return;
+        $entityInstance->setUpdatedAt(new \DateTime());
+        parent::updateEntity($entityManager, $entityInstance);
+     
+    }
+
+
 }
