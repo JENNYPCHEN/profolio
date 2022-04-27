@@ -1,0 +1,30 @@
+ <section id="contact" >
+        <div class ="container">
+          <h2 class="py-5 title text-center active ">me contacter</h2>
+          <p class="text-center fs-6">Je serais heureuse de discuter plus en détail avec vous de mon parcours, de mes compétences et de ma motivation. N'hésitez pas à me contacter par téléphone, par e-mail, via mon profil LinkedIn ou via le formulaire de contact ci-dessous.</p>
+          <div class="d-flex flex-wrap flex-row justify-content-center icon">
+          {% for introduction in introductions %}
+            <div class=" m-2 "><a href ="tel:{{introduction.telNo}}" ><i class='bx bxs-phone-call'> {{introduction.telNo}}</i></a></div>
+            <div class=" m-2 "><a href = "mailto:{{introduction.email}}"><i class='bx bxs-envelope'>{{introduction.email}}</i></a></div>
+            <div class="m-2 "><a href="https://goo.gl/maps/ouFJKmHk2HdSfqTT7" target="_blank" rel="noopener noreferrer"><i class='bx bxs-map'> 75013, Paris</i></a></div>
+          {% endfor %}
+          </div>
+          <form class="row m-4" id="contact_form">
+            <div class="col-md-6">
+              <input type="text" class="form-control my-2" placeholder="Votre nom *" aria-label="Votre nom" required>
+              <input type="email" class="form-control my-2" placeholder="Votre email *" aria-label="Votre email" required>
+              <input type="text" class="form-control my-2" placeholder="Votre subjet *" aria-label="Votre subjet" required>
+            </div>
+            <div class="col-md-6">
+              <textarea type="textarea" class="form-control my-md-2" placeholder="Votre message *" aria-label="Votre message" rows="5"required></textarea>
+            </div>
+            <div class="mb-3 ms-3 col form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">J'accepte que mes données personnelles saisies dans ce formulaire soient utilisées dans le cadre d'une prise de contact.</label>
+            </div>
+            <div class="col-12 text-center icon m-2">
+              <button type="submit" class="button px-2">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </section>

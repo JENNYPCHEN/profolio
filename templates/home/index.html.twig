@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+ {% block main %}
+       <div class="icon" id="scrollTop">
+        <a class="fixed-bottom text-end m-3 fs-3 " href="#header" ><i class='bx bxs-caret-up-circle'></i></a>
+      </div>
+              {{ include('home/sectionHome.html.twig') }}
+              {{ include('home/sectionAbout.html.twig') }}
+              {{ include('home/sectionSkill.html.twig') }}
+              {{ include('home/sectionProject.html.twig') }}
+              {{ include('home/sectionContact.html.twig') }}
+ {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<section id="about" style="background-color:white;" class="container ">
+        <h2 class="py-5 title text-center active ">à propos</h2>
+        <div class="row ">
+          <div class="col-sm-12 col-md-5 d-flex flex-md-row flex-column-reverse "id="about_image">
+          <div id="#about_icon" class="d-flex flex-md-column flex-sm-row justify-content-center  icon ">
+           {% for introduction in introductions %}
+            <a href="{{introduction.gitHubLink}}" target="_blank"class=" p-2" title="github"><i class='bx bxl-github fs-3' ></i></i></a>
+            <a href="{{ asset('build/ChingYi_PC_CV.pdf') }}" target="_blank" class=" p-2" title="mon cv"><i class='bx bxs-cloud-download fs-3 ' ></i></a>
+            <a href="{{introduction.linkedinLink}}"target="_blank" class=" p-2" title="linkedin"><i class='bx bxl-linkedin-square fs-3'></i></a>
+            <a href="#contact" class=" p-2" title="me contacter"><i class='bx bxs-envelope fs-3' ></i></a>
+         {% endfor %}
+          </div> 
+          <div >
+            <img  class="img-fluid" src="{{ asset('build/img/profil-pic-color-bg.png') }}">
+          </div>
+        </div>
+          <div class="col-sm-12 col-md-7 py-3 px-5 icon text-justify" id="about_content">
+            <h3 id="name" >Je suis Ching Yi, PELGRIMS CHEN &nbsp; </h3> <br>
+            {% for introduction in introductions %}
+            <p >{{introduction.aboutDescription|raw}}
+            </p>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
