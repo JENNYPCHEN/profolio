@@ -15,8 +15,7 @@ use App\Entity\Introduction;
 use App\Entity\Project;
 use App\Entity\Skill;
 use App\Entity\Tag;
-
-
+use App\Entity\User;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -24,7 +23,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
          $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-         $url = $routeBuilder->setController(ConferenceCrudController::class)->generateUrl();
+         $url = $routeBuilder->setController(ProjectCrudController::class)->generateUrl();
          return $this->redirect($url);
     }
 
@@ -44,14 +43,29 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Show Image','fa fa-eye',Image::class);
         yield MenuItem::linkToCrud('Add Tag','fa fa-tags',Tag::class)->setAction(Crud::PAGE_NEW);
         yield MenuItem::linkToCrud('Show Tag','fa fa-eye',Tag::class);
+
         yield MenuItem::section('Skills');
-        yield MenuItem::linkToCrud('Add Skill','fa fa-tags',Skill::class)->setAction(Crud::PAGE_NEW);
-        yield MenuItem::linkToCrud('Show Skills','fa fa-eye',Skill::class);
-        yield MenuItem::linkToCrud('Add Category','fa fa-tags',Category::class)->setAction(Crud::PAGE_NEW);
-        yield MenuItem::linkToCrud('Show Category','fa fa-eye',Category::class);
-        yield MenuItem::section ('Blog Homepage');
-        yield MenuItem::linkToCrud('Add Detail','fa fa-tags',Introduction::class)->setAction(Crud::PAGE_NEW);
-        yield MenuItem::linkToCrud('Show Detail','fa fa-eye',Introduction::class);
+        yield MenuItem::subMenu('Skills')->setSubItems([
+         MenuItem::linkToCrud('Add Skill','fa fa-tags',Skill::class)->setAction(Crud::PAGE_NEW),
+         MenuItem::linkToCrud('Show Skills','fa fa-eye',Skill::class),
+         MenuItem::linkToCrud('Add Category','fa fa-tags',Category::class)->setAction(Crud::PAGE_NEW),
+         MenuItem::linkToCrud('Show Category','fa fa-eye',Category::class),
+        ]);
+
+        yield MenuItem::section('Personalisation');
+        yield MenuItem::subMenu('Personalisation')->setSubItems([
+         MenuItem::linkToCrud('Add Detail','fa fa-tags',Introduction::class)->setAction(Crud::PAGE_NEW),
+         MenuItem::linkToCrud('Show Detail','fa fa-eye',Introduction::class),
+        ]);
+
+        yield MenuItem::section('User Management');
+        yield MenuItem::subMenu('User Management')->setSubItems([
+            MenuItem::linkToCrud('Add User','fa fa-tags',User::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Show User','fa fa-eye',User::class),
+           ]);
+
+        
 
     }
+
 }
