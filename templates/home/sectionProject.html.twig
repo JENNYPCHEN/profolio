@@ -4,35 +4,30 @@
           <h2 class="py-5 title text-center active ">mes réalisations</h2>
           <p class="text-center fs-6 mx-5 px-5">Je vous invite à parcourir les différents projets que j'ai réalisés dans le cadre de ma formation "Développeur d'applications PHP/Symfony" et à des fins personnelles.</p>
           <div id="project"class="row row-cols-md-5  row-cols-1 pb-1 d-flex justify-content-center ">
+            {% for project in projects %}
             <div class="col m-2 img-wrapper">
-              <img class="blur" src="assets/img/projects/project5pic1.png">
+            {% for image in project.images |slice(0,1) %}
+              <img class="blur" src="{{ asset('uploads/projectImages/')}}{{image.path}}">
+            {% endfor %}
               <div class="content text-center ">
                 <div class="my-3 ">
-                  <h6 class="m-2 label ">un blog avec vanila PHP</h6>
-                  <div><span class="badge badge-color m-1">PHP</span><span class="badge badge-color m-1">CSS</span></div>
+                  <h6 class="m-2 label ">{{project.shortDescription}}</h6>
+                  {% for tag in project.tags in 3 %}
+                  <div><span class="badge badge-color m-1">{{tag.name}}</span><span class="badge badge-color m-1">CSS</span></div>
                 </div>
+                {% endfor %}
                 <div class="icon m-t-3 ">
-                  <a href="" class="" title="voir le site"><i class='bx bxs-zoom-in fs-2'></i></a>
-                  <a href="" class="" title="plus d'infos"><i class='bx bxs-info-circle fs-2'></i></a>
-                  <a href="" class="" title="vois le repository"><i class='bx bxl-github bx-flip-horizontal fs-2' ></i></a>
-                </div>
-              </div>
-            </div>
-            <!--one more--> 
-            <div class="col m-2 img-wrapper">
-              <img class="blur" src="assets/img/projects/project5pic1.png">
-              <div class="content text-center ">
-                <div class="my-3 ">
-                  <h6 class="m-2 label ">un blog avec vanila PHP</h6>
-                  <div><span class="badge badge-color m-1">PHP</span><span class="badge badge-color m-1">CSS</span></div>
-                </div>
-                <div class="icon m-t-3 ">
-                  <a href="" class="" title="voir le site"><i class='bx bxs-zoom-in fs-2'></i></a>
-                  <a href="" class="" title="plus d'infos"><i class='bx bxs-info-circle fs-2'></i></a>
-                  <a href="" class="" title="vois le repository"><i class='bx bxl-github bx-flip-horizontal fs-2' ></i></a>
+                {% if project.webSiteLink is not empty %}
+                  <a href="{{project.webSiteLink}}" class="" title="voir le site" target="_blank" rel="noopener noreferrer"><i class='bx bxs-zoom-in fs-2'></i></a>
+                {% endif %} 
+                  <a href="" class="" title="plus d'infos"><i class='bx bxs-info-circle fs-2' target="_blank" rel="noopener noreferrer"></i></a>
+                    {% if project.gitHubLink is not empty %}
+                  <a href="{{project.gitHubLink}}" class="" title="vois le repository" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github bx-flip-horizontal fs-2' ></i></a>
+                {% endif %} 
                 </div>
               </div>
             </div>
           </div>
+            {% endfor %}
         </div>
       </section>
