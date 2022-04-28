@@ -19,7 +19,8 @@
             <div class="col-md-4 ">
              <input type="text" id="username" name="_username" value="{{ last_username }}"class="form-control my-2" placeholder="Votre nom d'utilisateur *" aria-label="Votre nom" required/>
              <input type="password" id="password" name="_password"class="form-control my-2" placeholder="Votre mot de passe *" aria-label="Votre email" required/>
-               <input type="hidden" name="_target_path" value="/admin"/> 
+               <input type="hidden" name="_target_path" value="/admin"/>
+               <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> 
             </div>
             <div class="col-12 text-center icon  pt-5 ">
               <button type="submit" class="button px-2">Envoyer</button>
