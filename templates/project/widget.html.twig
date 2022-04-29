@@ -1,0 +1,12 @@
+<div class="col-md-4">
+          <div id="project-bar"class="position-sticky icon " style="top: 4rem;">
+            <div class="p-4 mb-3 bg-light rounded">
+              <h4 class="py-2 fw-bold">Mes réalisations</h4>
+              {% for project in projects %}
+              <div class="py-2">
+              <a href="{{path('project', {slug: project.slug})}}">{{project.name}}</a>
+              <div>
+              {% endfor %}
+            </div> 
+          </div>
+        </div>

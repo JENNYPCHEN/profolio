@@ -7,5 +7,5 @@
         <a href="{{introduction.linkedinLink}}" target="_blank" class=" px-2"><i class='bx bxl-linkedin-square fs-3'></i></a>
         {% endfor %}
       </div>
-      <p class=" fs-6">Tous droits réservés &#169;  Ching Yi P.C. | 2022<span > {% if null is same as  app.user %}<a href="{{path('login')}}"><i class='bx bx-log-in text-white-50'></i></a>{% else %}<a href="{{path('app_logout')}}"><i class='bx bx-log-in text-white-50'></i></a>{% endif %}</span></p>
+      <p class=" fs-6">Tous droits réservés &#169;  Ching Yi P.C. | 2022<span > {% if null is same as  app.user %}<a href="{{path('login')}}" target="_blank" rel="noopener noreferrer"><i class='bx bx-log-in text-white-50'></i></a>{% else %}<a href="{{path('app_logout')}}"><i class='bx bx-log-in text-white-50'></i></a>{% endif %}</span></p>
     </footer>

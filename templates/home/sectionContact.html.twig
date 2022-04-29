@@ -5,7 +5,7 @@
           <div class="d-flex flex-wrap flex-row justify-content-center icon">
           {% for introduction in introductions %}
             <div class=" m-2 "><a href ="tel:{{introduction.telNo}}" ><i class='bx bxs-phone-call'> {{introduction.telNo}}</i></a></div>
-            <div class=" m-2 "><a href = "mailto:{{introduction.email}}"><i class='bx bxs-envelope'>{{introduction.email}}</i></a></div>
+            <div class=" m-2 "><a href = "mailto:{{introduction.email}}"><i class='bx bxs-envelope'> {{introduction.email}}</i></a></div>
             <div class="m-2 "><a href="https://goo.gl/maps/ouFJKmHk2HdSfqTT7" target="_blank" rel="noopener noreferrer"><i class='bx bxs-map'> 75013, Paris</i></a></div>
           {% endfor %}
           </div>
@@ -19,7 +19,7 @@
               <textarea type="textarea" class="form-control my-md-2" placeholder="Votre message *" aria-label="Votre message" rows="5"required></textarea>
             </div>
             <div class="mb-3 ms-3 col form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required >
               <label class="form-check-label" for="exampleCheck1">J'accepte que mes données personnelles saisies dans ce formulaire soient utilisées dans le cadre d'une prise de contact.</label>
             </div>
             <div class="col-12 text-center icon m-2">

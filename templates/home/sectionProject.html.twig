@@ -11,7 +11,7 @@
             {% endfor %}
               <div class="content text-center ">
                 <div class="my-3 ">
-                  <h6 class="m-2 label ">{{project.shortDescription}}</h6>
+                  <h6 class="m-2 label " >{{project.shortDescription}}</h6>
                   {% for tag in project.tags in 3 %}
                   <div><span class="badge badge-color m-1">{{tag.name}}</span><span class="badge badge-color m-1">CSS</span></div>
                 </div>
@@ -20,7 +20,7 @@
                 {% if project.webSiteLink is not empty %}
                   <a href="{{project.webSiteLink}}" class="" title="voir le site" target="_blank" rel="noopener noreferrer"><i class='bx bxs-zoom-in fs-2'></i></a>
                 {% endif %} 
-                  <a href="" class="" title="plus d'infos"><i class='bx bxs-info-circle fs-2' target="_blank" rel="noopener noreferrer"></i></a>
+                  <a href="{{ path('project', {slug: project.slug}) }}"target="_blank" rel="noopener noreferrer" class="" title="plus d'infos"><i class='bx bxs-info-circle fs-2' target="_blank" rel="noopener noreferrer"></i></a>
                     {% if project.gitHubLink is not empty %}
                   <a href="{{project.gitHubLink}}" class="" title="vois le repository" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github bx-flip-horizontal fs-2' ></i></a>
                 {% endif %} 

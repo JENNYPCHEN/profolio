@@ -26,7 +26,8 @@ class SkillCrudController extends AbstractCrudController
             IntegerField::new('level'),
             ImageField::new('logo')
             ->setBasePath('uploads/skillLogo')
-            ->setUploadDir('public/uploads/skillLogo'),
+            ->setUploadDir('public/uploads/skillLogo')
+            ->setFormTypeOption('required', false),
             AssociationField::new('category')
 
         ];
