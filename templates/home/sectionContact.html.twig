@@ -9,22 +9,32 @@
             <div class="m-2 "><a href="https://goo.gl/maps/ouFJKmHk2HdSfqTT7" target="_blank" rel="noopener noreferrer"><i class='bx bxs-map'> 75013, Paris</i></a></div>
           {% endfor %}
           </div>
-          <form class="row m-4" id="contact_form">
+          {{form_start(form,{'attr': {'class': 'row m-4'}})}}
+        <!--  <form class="row m-4" id="contact_form">
+          <input type="text" class="form-control my-2" placeholder="Votre nom *" aria-label="Votre nom" required>
+          <input type="email" class="form-control my-2" placeholder="Votre email *" aria-label="Votre email" required>
+          <input type="text" class="form-control my-2" placeholder="Votre subjet *" aria-label="Votre subjet" required>
+              <textarea type="textarea" class="form-control my-md-2" placeholder="Votre message *" aria-label="Votre message" rows="5"required></textarea>
+<input type="checkbox" class="form-check-input" id="exampleCheck1" required >
+              <button type="submit" class="button px-2">Envoyer</button>
+
+-->
             <div class="col-md-6">
-              <input type="text" class="form-control my-2" placeholder="Votre nom *" aria-label="Votre nom" required>
-              <input type="email" class="form-control my-2" placeholder="Votre email *" aria-label="Votre email" required>
-              <input type="text" class="form-control my-2" placeholder="Votre subjet *" aria-label="Votre subjet" required>
+            {{form_widget(form.nom,{'attr': {'class': 'form-control my-2','placeholder':'Votre nom *'}})}}
+            {{form_widget(form.email,{'attr': {'class': 'form-control my-2','placeholder':'Votre email *'}})}}
+            {{form_widget(form.subjet,{'attr': {'class': 'form-control my-2','placeholder':'Votre subjet *'}})}}
             </div>
             <div class="col-md-6">
-              <textarea type="textarea" class="form-control my-md-2" placeholder="Votre message *" aria-label="Votre message" rows="5"required></textarea>
+            {{form_widget(form.message,{'attr': {'class': 'form-control my-md-2','placeholder':'Votre message *', 'rows':'5'}})}}
             </div>
             <div class="mb-3 ms-3 col form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" required >
+            {{form_widget(form.agreeTerms,{'attr': {'class': 'form-check-input'}})}}
               <label class="form-check-label" for="exampleCheck1">J'accepte que mes données personnelles saisies dans ce formulaire soient utilisées dans le cadre d'une prise de contact.</label>
             </div>
             <div class="col-12 text-center icon m-2">
-              <button type="submit" class="button px-2">Envoyer</button>
+            {{form_widget(form.envoyer,{'attr':{'class':'button px-2'}})}}
             </div>
-          </form>
+         {{form_end(form)}}
+ 
         </div>
       </section>

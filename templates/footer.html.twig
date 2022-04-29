@@ -3,7 +3,7 @@
       <div class="py-2 icon">
       {% for introduction in introductions %}
         <a href="{{introduction.gitHubLink}}" target="_blank" class=" px-2"><i class='bx bxl-github fs-3' ></i></i></a>
-        <a href="{{introduction.cvLink}}" target="_blank" class=" px-2"><i class='bx bxs-cloud-download fs-3 ' ></i></a>
+        <a href="{{ asset('build/ChingYi_PC_CV.pdf') }}" target="_blank" class=" px-2"><i class='bx bxs-cloud-download fs-3 ' ></i></a>
         <a href="{{introduction.linkedinLink}}" target="_blank" class=" px-2"><i class='bx bxl-linkedin-square fs-3'></i></a>
         {% endfor %}
       </div>
