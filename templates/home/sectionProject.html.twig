@@ -2,10 +2,10 @@
       <section id="work" style="background-color:white;">
         <div id="" class ="container">
           <h2 class="py-5 title text-center active ">mes réalisations</h2>
-          <p class="text-center fs-6 mx-5 px-5">Je vous invite à parcourir les différents projets que j'ai réalisés dans le cadre de ma formation "Développeur d'applications PHP/Symfony" et à des fins personnelles.</p>
-          <div id="project"class="row row-cols-md-5  row-cols-1 pb-1 d-flex justify-content-center ">
+          <p class="text-center fs-6 ">Je vous invite à parcourir les différents projets que j'ai réalisés dans le cadre de ma formation "Développeur d'applications PHP/Symfony" et à des fins personnelles.</p>
+          <div id="project"class="row row-cols-1 row-cols-sm-2 row-cols-md-5 d-flex justify-content-center ">
             {% for project in projects %}
-            <div class="col m-2 img-wrapper">
+            <div class="col m-2 mx-sm-3 img-wrapper">
             {% for image in project.images |slice(0,1) %}
               <img class="blur" src="{{ asset('uploads/projectImages/')}}{{image.path}}">
             {% endfor %}
