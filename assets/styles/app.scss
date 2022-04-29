@@ -5,6 +5,7 @@ $title-color:#3d7a52;
 $sub-title-color:#64603d;
 $highlight-color:#F2E437;
 $sub-highlight-color:#D3C02F;
+$test-color:rgb(255, 255, 0);
 
 //overall setting
 
@@ -13,7 +14,7 @@ h1, h2, h3 {
   font-family:$title-font;  
 }
 p{
- //font-family: $body-font;
+ font-family: $body-font;
  color:#181f0d;
 }
 label {
@@ -91,8 +92,8 @@ h4{
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
- // box-shadow: 0px 4px 25px beige;
- border-radius: .5rem;
+  box-shadow: 5px 5px 5px beige;
+  border-radius: .5rem;
   overflow: hidden;
   backface-visibility: hidden;
 }
@@ -101,14 +102,16 @@ h4{
 }
 }
 .img-wrapper:hover > img.blur {
- filter: brightness(0.3);
+ filter: brightness(0.4);
+ filter:blur(30px);
  //background-color: #223b0bb6;
+
 }
 
 .img-wrapper:hover > .content {
   display:block;
   position: absolute;
-  color:white;
+  color:rgb(255, 255, 0);
   inset: 0;
   top: 50%;
   left:50%;
@@ -158,7 +161,6 @@ footer{
 //individual project style
 .navStyle{
   color:$title-color;
-  background-color: $highlight-color;
 }
 .badge-color2{
   background-color: $sub-title-color;
