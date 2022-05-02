@@ -41,6 +41,7 @@ services:
       - ./app:/laragon/www/profolio
     depends_on:
       - database
+  
   nginx:
     container_name: nginx
     networks:
