@@ -1,6 +1,12 @@
  <section id="contact" >
         <div class ="container">
           <h2 class="py-5 title text-center active ">me contacter</h2>
+                 {% for message in app.flashes('success') %}
+        <div class="alert alert-warning alert-dismissible fade show my-5" role="alert">
+         {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
           <p class="text-center fs-6">Je serais heureuse de discuter plus en détail avec vous de mon parcours, de mes compétences et de ma motivation. N'hésitez pas à me contacter par téléphone, par e-mail, via mon profil LinkedIn ou via le formulaire de contact ci-dessous.</p>
           <div class="d-flex flex-wrap flex-row justify-content-center icon">
           {% for introduction in introductions %}
