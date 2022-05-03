@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\SkillRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
+#[UniqueEntity('name')]
 class Skill
 {
     #[ORM\Id]
