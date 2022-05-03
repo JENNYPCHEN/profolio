@@ -25,7 +25,8 @@ class IntroductionCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('linkedinLink'),
             ImageField::new('CVLink')->setBasePath('build')
-            ->setUploadDir('public/build'),
+            ->setUploadDir('public/build')
+            ->setFormTypeOption('required' ,false),
             TextField::new('gitHubLink'),
             EmailField::new('email'),
             TelephoneField::new('telNo'),
