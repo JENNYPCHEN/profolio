@@ -16,6 +16,11 @@ use App\Entity\Project;
 use App\Entity\Skill;
 use App\Entity\Tag;
 use App\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 
 class DashboardController extends AbstractDashboardController
 {

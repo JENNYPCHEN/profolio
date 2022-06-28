@@ -71,12 +71,11 @@ new TypeIt("#headline", {
     $('section[id]').each(function (index, elem) {
         var offsetTop = $(elem).offset().top;
         var outerHeight = $(this).outerHeight(true);
+
         if( windowTop > (offsetTop - 50) && windowTop < ( offsetTop + outerHeight)) {
             var elemId = $(elem).attr('id');
-            $(".nav-link").removeClass('active');
-            $("nav ul li a[href='#" + elemId + "']").addClass('active');
-
-        
+            $("nav ul li a.active").removeClass('active');
+            $("nav ul li a[href='/#" + elemId + "']").addClass('active');
         }
     });
 };

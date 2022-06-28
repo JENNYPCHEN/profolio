@@ -10,8 +10,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\ProjectRepository;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
+use App\Service\EmailService;
 
 
 class HomeController extends AbstractController
@@ -19,24 +18,33 @@ class HomeController extends AbstractController
     private $introductionRepository;
     private $categoryRepository;
     private $projectRepository;
-    public function __construct(introductionRepository $introductionRepository, CategoryRepository $categoryRepository, ProjectRepository $projectRepository)
+    private $emailService;
+
+    public function __construct(introductionRepository $introductionRepository, CategoryRepository $categoryRepository, ProjectRepository $projectRepository, EmailService $emailService)
     {
         $this->introductionRepository= $introductionRepository;
         $this->categoryRepository = $categoryRepository;
         $this->projectRepository=$projectRepository;
+        $this->emailService=$emailService;
     }
     #[Route('/', name: 'home')]
     
-    public function index(Request $request, MailerInterface $mailer): Response
+    public function index(Request $request): Response
     {
         $introduction=$this->introductionRepository->findAll();
         $frontend=$this->categoryRepository->findBy(['name'=>'Frontend']);
         $backend=$this->categoryRepository->findBy(['name'=>'Backend']);
         $other=$this->categoryRepository->findBy(['name'=>'Autres']);
         $project=$this->projectRepository->findAll();
-        $form = $this->createForm(ContactType::class);
-       
 
+        $form = $this->createForm(ContactType::class);
+       $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->emailService->sendEmail($form);
+            $this->addFlash('success', 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.');
+             return $this->redirectToRoute('home');
+        }
+    
         return $this->render('home/index.html.twig', [
             'introductions' => $introduction,
             'frontends'=> $frontend,
